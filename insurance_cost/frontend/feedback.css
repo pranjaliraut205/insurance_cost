@@ -1,0 +1,120 @@
+
+
+body.feedback-page {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+
+    /* Dark overlay + background image */
+   background: url("/frontend/all_images/predict_bg.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feedback-container {
+    background-color: #ffffff;
+    width: 420px;
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+
+.feedback-container h2 {
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.feedback-container p {
+    color: #555;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    background-color: #2563eb;
+    color: #ffffff;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+}
+
+/* Disabled button (Blocked state) */
+button:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+}
+
+
+#statusMsg {
+    font-weight: 600;
+    margin-bottom: 15px;
+    min-height: 20px;
+}
+
+
+.home-link {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.home-link a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.home-link a:hover {
+    text-decoration: underline;
+}
+
+
+@media (max-width: 480px) {
+    .feedback-container {
+        width: 90%;
+        padding: 30px;
+    }
+}

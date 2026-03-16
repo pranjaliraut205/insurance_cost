@@ -1,0 +1,54 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head> 
+ <meta charset="UTF-8">
+    <title>Feedback | InsuranceAI</title> 
+    <link rel="stylesheet" href="/frontend/feedback.css">
+    </head> 
+    <body class="feedback-page">
+    <div class="feedback-container">
+    <h2>We Value Your Feedback</h2>
+    <p>Help us improve the Insurance Cost Prediction System</p>
+    <form id="feedbackForm">
+    <div class="input-group"> 
+    <label>Your Name</label>
+    <input type="text" id="name" placeholder="e.g. Pranjali Raut" required> 
+    </div> <div class="input-group"> 
+    <label>Your Feedback</label>
+    <textarea id="message" rows="5" required placeholder="Share your experience with the insurance prediction system...">
+    </textarea> 
+    </div> 
+    <p id="statusMsg"></p> 
+    <button type="submit" id="submitBtn"> Submit Feedback </button>
+    </form>
+    <p class="home-link"> 
+    <a href="/frontend/main.html">← Back to Home</a>
+    </p> </div> 
+    <script> 
+    let attemptsLeft = 3; 
+                     const submitBtn = document.getElementById("submitBtn");
+                      const msgBox = document.getElementById("statusMsg"); 
+                      const messageInput = document.getElementById("message");
+                       // Bad words list (demo purpose) 
+                       const badWords = [ "stupid", "idiot", "bullshit", "rubbish", "useless", "dumb", "hate", "fuck", "shit", "bitch","bad", "terrible", "awful","not good" ]; 
+                       document.getElementById("feedbackForm").addEventListener("submit", function(e) { e.preventDefault();
+                        const userText = messageInput.value.toLowerCase();
+                         let foundBadWord = false; for (let word of badWords) { if (userText.includes(word)) { foundBadWord = true; break; } } if (foundBadWord) { attemptsLeft--; if (attemptsLeft > 0) { msgBox.style.color = "red";
+                          msgBox.textContent = "Please use appropriate language. " + attemptsLeft + " attempts left."; 
+                          messageInput.style.borderColor = "red";
+                           } else { msgBox.style.color = "darkred"; 
+                           msgBox.textContent = "You have used inappropriate language too many times. Access blocked.";
+                            submitBtn.disabled = true;
+                             messageInput.disabled = true; 
+                             submitBtn.textContent = "Blocked";
+                              submitBtn.style.background = "#9ca3af";
+                               } }
+                                else
+                                 { msgBox.style.color = "green"; 
+                                 msgBox.textContent = "Thank you for your feedback! It helps us improve.";
+                                  messageInput.style.borderColor = "#cbd5e1";
+                                   document.getElementById("feedbackForm").reset(); 
+                                   } });
+                                    </script> 
+                                    </body>
+                                     </html>

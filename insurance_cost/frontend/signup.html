@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up | InsuranceAI</title>
+    <link rel="stylesheet" href="/frontend/login.css">
+</head>
+<body class="auth-page">
+
+    <div class="auth-container">
+        <h2>InsuranceAI</h2>
+        <h3>Create Account</h3>
+        <p>Register to predict your insurance cost using AI</p>
+
+        <form id="signupForm">
+
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" id="fullname" placeholder="e.g. Pranjali Raut" required>
+            </div>
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="password"
+                       placeholder="Min 8 chars, 1 number, 1 symbol" required>
+            </div>
+
+            <p id="message" class="message-box"></p>
+
+            <button type="submit" class="btn-primary full-width">
+                Sign Up
+            </button>
+
+        </form>
+
+        <p class="switch-text">
+            Already have an account? <a href="/frontend/login.html">Login</a>
+        </p>
+
+        <p class="home-link">
+            <a href="/frontend/main.html">← Back to Home</a>
+        </p>
+    </div>
+
+<script>
+document.getElementById("signupForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nameInput = document.getElementById("fullname");
+    const emailInput = document.getElementById("email");
+    const passInput = document.getElementById("password");
+    const messageBox = document.getElementById("message");
+
+    const fullname = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const password = passInput.value;
+
+    // Reset
+    messageBox.textContent = "";
+    messageBox.style.color = "red";
+    nameInput.style.border = "1px solid #cbd5e1";
+    emailInput.style.border = "1px solid #cbd5e1";
+    passInput.style.border = "1px solid #cbd5e1";
+
+    // Name validation
+    if (fullname.length < 3) {
+        messageBox.textContent = "Full name must be at least 3 characters.";
+        nameInput.style.border = "2px solid red";
+        return;
+    }
+
+    // Email validation
+    if (!email.includes("@") || !email.includes(".")) {
+        messageBox.textContent = "Please enter a valid email address.";
+        emailInput.style.border = "2px solid red";
+        return;
+    }
+
+    // Password rules
+    if (password.length < 8) {
+        messageBox.textContent = "Password must be at least 8 characters.";
+        passInput.style.border = "2px solid red";
+        return;
+    }
+
+    if (!/\d/.test(password)) {
+        messageBox.textContent = "Password must contain at least one number.";
+        passInput.style.border = "2px solid red";
+        return;
+    }
+
+    if (!/[!@#$%^&*(),.?\":{}|<>]/.test(password)) {
+        messageBox.textContent = "Password must contain at least one symbol.";
+        passInput.style.border = "2px solid red";
+        return;
+    }
+
+    // Save data
+    localStorage.setItem("storedEmail", email);
+    localStorage.setItem("storedPassword", password);
+    localStorage.setItem("userName", fullname);
+
+    messageBox.style.color = "green";
+    messageBox.textContent = "Account created successfully! Redirecting to login...";
+
+    setTimeout(() => {
+        window.location.href = "login.html";
+    }, 1500);
+});
+</script>
+
+</body>
+</html>

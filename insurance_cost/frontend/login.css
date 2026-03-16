@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+}
+
+body.auth-page {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+
+    background-image: linear-gradient(
+        rgba(15, 23, 42, 0.75),
+        rgba(15, 23, 42, 0.75)
+    ),
+    url("/frontend/all_images/insurance.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container */
+.auth-container {
+    background: white;
+    padding: 40px;
+    width: 100%;
+    max-width: 420px;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+.auth-container h2 {
+    color: #1f3c88;
+    margin-bottom: 5px;
+}
+
+.auth-container h3 {
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.auth-container p {
+    color: #475569;
+    margin-bottom: 25px;
+}
+
+/* Inputs */
+.input-group {
+    text-align: left;
+    margin-bottom: 16px;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+/* Buttons */
+.btn-primary {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* Message */
+.message-box {
+    min-height: 20px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Links */
+.switch-text {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.switch-text a {
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.home-link {
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.home-link a {
+    color: #64748b;
+    text-decoration: none;
+}

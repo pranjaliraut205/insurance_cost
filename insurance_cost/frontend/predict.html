@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predict Insurance Cost</title>
+
+    <link rel="stylesheet" href="/frontend/predict.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <h2 class="logo">InsuranceAI</h2>
+    <ul>
+        <li><a href="/frontend/main.html">Home</a></li>
+        <li><a href="/frontend/feedback.html">Feedback</a></li>
+        <li><a href="/frontend/about.html">About</a></li> 
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Insurance Cost Prediction</h1>
+    
+</section>
+
+<!-- MAIN -->
+<div class="main-container">
+
+    <!-- FORM -->
+    <div class="form-card">
+        <h2>Enter Your Details</h2>
+
+        <form id="predictForm" onsubmit="return false;">
+
+<div class="form-row">
+    <label>Age</label>
+    <input type="number" id="age" min="1" max="100">
+</div>
+<small class="error" id="ageError"></small>
+
+<div class="form-row">
+    <label>Gender</label>
+    <select id="gender">
+        <option disabled selected value="">Select</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
+</div>
+<small class="error" id="genderError"></small>
+
+<div class="form-row">
+    <label>BMI</label>
+    <input type="number" id="bmi" step="0.1">
+</div>
+<small class="error" id="bmiError"></small>
+
+<div class="form-row">
+    <label>Children</label>
+    <input type="number" id="children" min="0" max="10">
+</div>
+<small class="error" id="childrenError"></small>
+
+<div class="form-row">
+    <label>Smoker</label>
+    <select id="smoker">
+        <option disabled selected value="">Select</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+    </select>
+</div>
+<small class="error" id="smokerError"></small>
+
+<div class="form-row">
+    <label>Region</label>
+    <select id="region">
+        <option disabled selected value="">Select</option>
+        <option value="northwest">Northwest</option>
+        <option value="northeast">Northeast</option>
+        <option value="southwest">Southwest</option>
+        <option value="southeast">Southeast</option>
+    </select>
+</div>
+<small class="error" id="regionError"></small>
+
+<button type="button" onclick="validateForm()">Predict Cost</button>
+
+</form>
+
+
+    </div>
+
+    <!-- RESULT -->
+    <div class="result-card">
+        <h2>Estimated Cost</h2>
+        <div class="price">₹ 0</div>
+        <p>Prediction will appear here</p>
+    </div>
+
+</div>
+<script src="/frontend/predict.js"></script>
+
+</body>
+</html>

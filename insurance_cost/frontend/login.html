@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | InsuranceAI</title>
+    <link rel="stylesheet" href="/frontend/login.css">
+</head>
+<body class="auth-page">
+
+    <div class="auth-container">
+        <h2>InsuranceAI</h2>
+        <h3>Welcome Back</h3>
+        <p>Login to predict your insurance cost</p>
+
+        <form id="loginForm">
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+
+            <p id="message" class="message-box"></p>
+
+            <a href="#" id="loginBtn" class="btn-primary full-width">
+    Login
+</a>
+
+
+        </form>
+
+        <p class="switch-text">
+            Don’t have an account? <a href="/frontend/signup.html">Sign Up</a>
+        </p>
+
+        <p class="home-link">
+            <a href="/frontend/main.html">← Back to Home</a>
+        </p>
+    </div>
+
+<script>
+let attemptsLeft = 3;
+
+document.getElementById("loginBtn").addEventListener("click", function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const messageBox = document.getElementById("message");
+
+    const storedEmail = localStorage.getItem("storedEmail");
+    const storedPassword = localStorage.getItem("storedPassword");
+    const storedName = localStorage.getItem("userName");
+
+    if (!email || !password) {
+        messageBox.textContent = "Please fill in all fields.";
+        messageBox.style.color = "red";
+        return;
+    }
+
+    if (!storedEmail || !storedPassword) {
+        messageBox.innerHTML = "No account found. <a href='signup.html'>Sign up first</a>";
+        messageBox.style.color = "red";
+        return;
+    }
+
+    if (email === storedEmail && password === storedPassword) {
+        messageBox.style.color = "green";
+        messageBox.textContent = "Login successful! Welcome " + storedName;
+
+        localStorage.setItem("isLoggedIn", "true");
+
+        setTimeout(() => {
+            window.location.href = "main.html";
+        }, 1000);
+    } else {
+        attemptsLeft--;
+        messageBox.style.color = "red";
+        messageBox.textContent = "Invalid credentials. " + attemptsLeft + " attempts left.";
+    }
+});
+</script>
+
+
+</body>
+</html>

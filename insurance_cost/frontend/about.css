@@ -1,0 +1,75 @@
+/* ABOUT PAGE */
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: transparent;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #1f3c88;
+}
+
+.navbar nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #1f3c88;
+  font-weight: 500;
+}
+.about-hero {
+    background: linear-gradient(to right, #e0f2fe, #f0f9ff);
+    padding: 60px;
+    text-align: center;
+}
+
+.about-hero h1 {
+    color: #1f3c88;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.about-hero p {
+    color: #475569;
+    font-size: 18px;
+}
+
+.about-content {
+    padding: 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    background: #f8fafc;
+}
+
+.about-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.about-card h2 {
+    color: #1f3c88;
+    margin-bottom: 10px;
+}
+
+.about-card p,
+.about-card li {
+    color: #475569;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.about-card ul {
+    padding-left: 20px;
+}
+
+.active {
+    font-weight: bold;
+    color: #2563eb;
+}
